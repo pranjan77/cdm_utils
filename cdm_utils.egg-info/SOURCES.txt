@@ -1,0 +1,8 @@
+setup.py
+cdm_utils.egg-info/PKG-INFO
+cdm_utils.egg-info/SOURCES.txt
+cdm_utils.egg-info/dependency_links.txt
+cdm_utils.egg-info/top_level.txt
+tests/__init__.py
+tests/test_bbmap_assembly_stats.py
+tests/x.py
