@@ -3,17 +3,19 @@ import configparser
 import sys
 import os
 import tempfile
+import shutil
 class BBMapAssemblyStats:
     def __init__(self, config_file='config.ini'):
         # Initialize an empty dictionary to store the parsed data
+
         self.stats = {}
-        
-        # Load the configuration file
-        self.config = configparser.ConfigParser()
-        self.config.read(config_file)
-        
-        # Get the path to the stats.sh binary
-        self.stats_sh_path = self.config.get('BBMap', 'stats_sh_path')
+        stats_path = shutil.which('stats.sh')
+        if stats_path:
+            self.stats_path = stats_path
+            print(f"Path to stats.sh: {stats_path}")
+        else:
+            print("stats.sh not found in PATH")
+           # Get the path to the stats.sh binary
 
     def run_bbmap_stats(self, assembly_file):
         """
