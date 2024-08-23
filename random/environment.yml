@@ -10,6 +10,7 @@ dependencies:
   - aragorn=1.2.41=h031d066_3
   - argtable2=2.13=hd590300_1004
   - barrnap=0.9=hdfd78af_4
+  - bbmap=39.08=h92535d8_0
   - bedtools=2.31.1=hf5e1c6e_2
   - blast=2.16.0=hc155240_2
   - blast-legacy=2.2.26=h9ee0642_3
@@ -39,6 +40,7 @@ dependencies:
   - gsl=2.7=he838d99_0
   - harfbuzz=8.5.0=hfac3d4d_0
   - hmmer=3.4=hdbdd923_1
+  - htslib=1.20=h5efdd21_2
   - icu=73.2=h59595ed_0
   - infernal=1.1.5=pl5321h031d066_2
   - keyutils=1.6.1=h166bdaf_0
@@ -205,6 +207,7 @@ dependencies:
   - python_abi=3.8=5_cp38
   - readline=8.2=h8228510_1
   - rpsbproc=0.5.0=h6a68c12_0
+  - samtools=1.20=h50ea8bc_1
   - setuptools=72.2.0=pyhd8ed1ab_0
   - t-coffee=12.00.7fb08c2=h26a2512_0
   - tbl2asn-forever=25.7.2f=h031d066_4
