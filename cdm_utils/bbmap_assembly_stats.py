@@ -1,3 +1,4 @@
+
 import subprocess
 import configparser
 import sys
@@ -23,7 +24,7 @@ class BBMapAssemblyStats:
         """
         try:
             # Create a temporary file to store the output
-            args = [self.stats_sh_path, f'in={assembly_file}']
+            args = [self.stats_path, f'in={assembly_file}']
             # Run the stats.sh command and redirect output to the temp file
             result = subprocess.run(args,
                   stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True
