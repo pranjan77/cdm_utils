@@ -114,18 +114,19 @@ class NCBIJSONLParser:
 
                 # Extract data for Sample Attributes table
                 for attribute in biosample.get('attributes', []):
-                    sample_attribute_id = self.generate_md5(sample_id, attribute.get('name', ''))
-                    sample_attributes_entry = {
-                        'id': sample_attribute_id,
-                        'sample_id': sample_id,
-                        'metadata_key': attribute.get('name', ''),
-                        'metadata_key_ontology': '',
-                        'metadata_value': attribute.get('value', ''),
-                        'metadata_value_ontology': '',
-                        'unit': '',
-                        'unit_ontology': ''
-                    }
-                    self.sample_attributes_data.append(sample_attributes_entry)
+                    if attribute.get('value') != 'missing':
+                        sample_attribute_id = self.generate_md5(sample_id, attribute.get('name', ''))
+                        sample_attributes_entry = {
+                            'id': sample_attribute_id,
+                            'sample_id': sample_id,
+                            'metadata_key': attribute.get('name', ''),
+                            'metadata_key_ontology': '',
+                            'metadata_value': attribute.get('value', ''),
+                            'metadata_value_ontology': '',
+                            'unit': '',
+                            'unit_ontology': ''
+                        }
+                        self.sample_attributes_data.append(sample_attributes_entry)
 
                 # Extract cross-reference data for sample_xref table
                 for sample_id_info in biosample.get('sampleIds', []):
