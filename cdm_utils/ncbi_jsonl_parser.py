@@ -103,7 +103,7 @@ class NCBIJSONLParser:
                 latitude = longitude = depth = elevation = env_broad_scale_id = None
                 env_local_scale_id = env_medium_id = collection_date = ecosystem = None
                 ecosystem_category = ecosystem_type = ecosystem_subtype = specific_ecosystem = None
-                geo_loc_name = host = is_metagenomic= None
+                geo_loc_name = host = is_metagenomic= derived_from= None
     
     # Extract cross-reference data for sample_xref table
                 xref = list()
@@ -169,6 +169,11 @@ class NCBIJSONLParser:
                     elif name == 'host':
                         host = value if value.lower() != "missing" else None
 
+                    elif name == 'derived_from':
+                        v = value if value.lower() != "missing" else None
+                        derived_from = ", ".join(re.findall(r"SAMN\d{8}", v))
+
+
                     elif name == 'metagenomic':
                         is_metagenomic = value if value.lower() != "missing" else None
 
@@ -212,7 +217,7 @@ class NCBIJSONLParser:
                     'location': geo_loc_name,
                     'elevation': elevation,
                     'host': host,
-                    'parent_accession': sample_parent_accession,
+                    'derived_from': derived_from,
                     'environment_package': environment_package,
                     'models': models,
                     'sample_parent_id': None  # Placeholder, adjust if parent info is available
